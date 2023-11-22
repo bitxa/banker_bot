@@ -34,7 +34,17 @@ def query_bot():
     except Exception as e:
         return jsonify({'error': 'An error occurred while processing the message'}), 500
 
+@app.route('/themes', methods=['GET'])
+def get_themes():
+    try:
+        themes = bot.get_themes()
+        print(themes)
+        return jsonify({'themes': themes})
 
+    except Exception as e:
+        return jsonify({'error': 'An error occurred while processing the message'}), 500
+    
+    
 @app.errorhandler(Exception)
 def handle_error(e):
     app.logger.error(f"An error occurred: {str(e)}")
@@ -43,6 +53,7 @@ def handle_error(e):
 @app.route('/static/<path:filename>')
 def serve_static(filename):
     return send_from_directory('static', filename)
+
 
 
 if __name__ == '__main__':

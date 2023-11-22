@@ -11,7 +11,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
 
     <script src="{{ url_for('static', filename='js/new_message.js') }}"></script>
     <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
@@ -53,38 +57,34 @@
         </div>
       </div>
     </aside>
-
-    <main class="chat-container">
-      
-      <div class="chat" id="chat">
-      </div>
    
+    <main class="chat-container">
+      <div class="chat" id="chat"></div>
+      <div id="responding" class="responding" style="display: none">
+        <p> Buscando información... </p>
+      </div>
       <div class="actions">
         <div class="topics">
-          <button class="topic">
-            <h4>Recursos financieros</h4>
-          </button>
         </div>
         <form
-        action="/query"
-        method="post"
-        id="user_input_form"
-        class="user_input_form">
-        <input
-          type="text"
-          name="user_input"
-          id="user_input"
-          placeholder="Ingresa tu pregunta aquí"
-          required
-        />
-        <button type="submit">
-          <i class="fa-solid fa-paper-plane"></i>
-        </button>
-      </form>
+          action="/query"
+          method="post"
+          id="user_input_form"
+          class="user_input_form"
+        >
+          <input
+            type="text"
+            name="user_input"
+            id="user_input"
+            placeholder="Ingresa tu pregunta aquí"
+            required
+          />
+          <button type="submit">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
       </div>
-
      
-
     </main>
   </body>
 </html>
