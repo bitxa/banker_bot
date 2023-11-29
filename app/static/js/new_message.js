@@ -18,13 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function appendBotResponse(response) {
     responseCounter++;
-    response = response.replace(/\n/g, "<br>");
+    //give and space before and after ( )
+    response = response.replace(/\n/g, "<br>").replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;").replace(/\(/g, " ( ").replace(/\)/g, " ) ");
   
     var botResponse = `
       <div class="bot-response message" id="response-${responseCounter}">
         <div class="header">
           <div class="info writting">
-            <img class="avatar" src="../static/images/banker_avatar.jpg" alt />
+            <img class="avatar" src="../static/images/banker_avatar.webp" alt />
             <p>Banker</p>
           </div>
           <div class="copy">
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </button>
           </div>
         </div>
-        <div class="content bot-message">
+        <div class=" bot-message">
           <p>${response}</p>
         </div>
       </div>`;
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function sendInitialGreeting() {
     const greeting =
-      "Hola, soy Banker, tu asesor financiero. ¿En qué te puedo ayudar?";
+      "Hola, soy Banker, tu asesor universitario. ¿En qué te puedo ayudar?";
     appendBotResponse(greeting);
   }
   sendInitialGreeting();
@@ -125,9 +126,15 @@ document.addEventListener("DOMContentLoaded", function () {
           // Append the button to the topics div
           topicsDiv.appendChild(button);
         });
+
+        hideLoader(); 
       })
       .catch((error) => console.error("Error getting themes:", error));
   }
 
   getThemes();
+
+  function hideLoader() {
+    document.getElementById("loader").style.display = "none";
+  }
 });

@@ -32,7 +32,7 @@ body {
 
 header {
   grid-area: 1 / 1 / 2 / 5;
-  background-color: #272829;
+  background-color: #355289;
   padding: 1vh;
   padding-left: 2vh;
   letter-spacing: 0.3ch;
@@ -53,7 +53,7 @@ nav .menu {
 
 nav .menu:hover {
   transform: scale(1.1);
-  background-color: #52575d;
+  background-color: #355289;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -73,14 +73,14 @@ h1 {
 
 aside {
   grid-area: 2 / 1 / 5 / 2;
-  background-color: #52575d;
+  background-color: #f7f7f7;
   padding: 2vh;
 }
 
 .chat-container {
   position: relative;
   grid-area: 2 / 2 / 5 / 5;
-  background-color: #121212;
+  background-color: #ffffff;
   padding: 1.5vh;
   padding-top: 0;
   display: flex;
@@ -98,20 +98,21 @@ aside {
   -o-border-radius: 3vh;
   margin-bottom: 1vh;
   margin-top: 1vh;
+  color: #eeeded;
+  font-size: 1.1rem;
 }
 
 .user-question {
   padding: 2vh;
   font-size: 0.9rem;
-  color: #393e46;
-  background-color: #eeeded;
+  background-color: #45474B;
+  
 }
 
 .bot-response {
   padding: 3vh;
   font-size: 1rem;
-  background-color: #393e46;
-  color: #eeeded;
+  background-color: #254760;
 }
 
 .bot-response .header {
@@ -173,12 +174,12 @@ aside {
   font-weight: 700;
 }
 
-.bot-message {
+.message {
   height: auto;
   word-wrap: break-word;
 }
 
-.bot-message p {
+.message p {
   white-space: wrap;
   overflow: hidden;
   font-family: monospace;
@@ -215,6 +216,7 @@ aside {
   bottom: 1 !important;
   padding: 3vh;
   padding-top: 0.5vh;
+  padding-bottom: 0;
   min-height: 2vh;
 }
 
@@ -231,7 +233,7 @@ aside {
 }
 
 .actions .user_input_form input {
-  color: #f7f7f7;
+  color: #45474B;
   background-color: transparent !important;
   border: none;
   font-size: 1rem;
@@ -240,7 +242,7 @@ aside {
 }
 
 #user_input::placeholder {
-  color: #f4f4f4;
+  color: #45474B;
   opacity: 0.5;
 }
 
@@ -254,7 +256,7 @@ aside {
   cursor: pointer;
   padding: 1vh;
   font-size: 1rem;
-  color: #f7f7f7;
+  color: #45474B;
 }
 
 .chat {
@@ -273,7 +275,7 @@ aside {
 .toolbar .new-chat {
   width: 70%;
   height: 4vh;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #45474B;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: #f4f4f4;
   border: none;
@@ -293,7 +295,7 @@ aside {
 }
 
 .history .date {
-  color: #f4f4f4;
+  color: #45474B;
   margin-left: 1vh;
 }
 
@@ -322,7 +324,7 @@ aside {
   width: 100%;
   height: 5vh;
   font-size: 1rem;
-  color: #cacaca;
+  color: #45474B;
   border-radius: 25vh;
   -webkit-border-radius: 25vh;
   -moz-border-radius: 25vh;
@@ -355,7 +357,7 @@ body.hide-aside {
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 0;
   padding-top: 1vh;
   padding-bottom: 1vh;
@@ -363,22 +365,24 @@ body.hide-aside {
   max-width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  background-color: transparent;
 }
 
 .topic{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  width: 90%;
   font-weight: 100;
-  height: 40%;
-  background-color: #EC8F5E;
+  background-color: #8E8FFA;
   color: #F9F9F9;
-  border-radius: 1vh;
-  -webkit-border-radius: 1vh;
-  -moz-border-radius: 1vh;
-  -ms-border-radius: 1vh;
-  -o-border-radius: 1vh;
+  border-radius: 5vh;
+  margin: 0.5vh;
+  -webkit-border-radius: 5vh;
+  -moz-border-radius: 5vh;
+  -ms-border-radius: 5vh;
+  -o-border-radius: 5vh;
 }
 
 
@@ -387,21 +391,53 @@ body.hide-aside {
   align-items: center;
   text-align: center;
   justify-content: center;
-  width: 90%;
+  width: 50%;
   color: #ffffff;
   background-color: #374259;
   padding: 0.5vh;
   margin-top: 1vh;
   text-align: center;
-  border-radius: 2vh;
+  border-radius: 10vh;
   font-size: 1rem;
   animation: blinker 1s linear infinite;
   -webkit-animation: blinker 1s linear infinite;
   z-index: 1;
+  -webkit-border-radius: 10vh;
+  -moz-border-radius: 10vh;
+  -ms-border-radius: 10vh;
+  -o-border-radius: 10vh;
 }
 
 @keyframes blinker {
   50% {
     opacity: 0;
   }
+}
+
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #355289;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
